@@ -1,0 +1,125 @@
+---
+layout: default
+---
+
+
+<div style="margin-top: 50px">
+    <div class="ui container">
+        <h2 class="ui center aligned header" style="margin-bottom: 50px">{{ site.title }}</h2>
+        <div class="ui stackable three column grid">
+            <div class="column">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Enter Amount</label>
+                        <input id="amount" type="text" name="amount" placeholder="Amount">
+                    </div>
+                    <button id="submit-data" class="ui primary button">Submit</button>
+                    <button id="clear" class="ui button">Clear</button>
+                </div>
+                <div id="data" style="margin-top: 30px">
+
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui vertical divider">
+                    Description
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui relaxed divided list">
+                    <div class="item">
+                        <i class="big money bill alternate outline icon"></i>
+                        <div class="content">
+                            <div class="header">LF (liberatate financiara) - 10%</div>
+                            <div class="description">Bani acumulați doar pentru a fi investiți pentru a aduce venit
+                                pasiv
+                                (ex. Investiție: Cumpărare apartament, ) - Pușculița moștenire copiilor, nepoților
+                                :)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="big money bill alternate outline icon"></i>
+                        <div class="content">
+                            <div class="header">ETL(economii pe termen lung) - 10%</div>
+                            <div class="description">Sunt bani pentru - călătorii, educația copiilor, mașină,
+                                casa, plus se Adaugă cheltuielile neprevăzute
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="big money bill alternate outline icon"></i>
+                        <div class="content">
+                            <div class="header"> EDU (educatie) - 10%</div>
+                            <div class="description">bani utilizati pentru educația personală (cărți, cursuri,
+                                trainings,
+                                conferințe )
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="big money bill alternate outline icon"></i>
+                        <div class="content">
+                            <div class="header">NEC (necesitati) - 55%</div>
+                            <div class="description">mincare, casa, chirie, haine(haine care sunt necesare :) ),
+                                frizer, și alte cheltuili. —> banii rămași ajung în LF(liberatate financiara)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="big money bill alternate outline icon"></i>
+                        <div class="content">
+                            <div class="header"> JOC (joaca) - 5%</div>
+                            <div class="description">bani pentru activități, distracții, chestii care te împlinesc,
+                                “Este
+                                recompensa pe care o Primești pentru munca ta :)”
+                                (regula: banii trebuie sa ii spargi în fiecare luna, cu excepția cind ii acumulezi
+                                pentru
+                                ceva)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="big money bill alternate outline icon"></i>
+                        <div class="content">
+                            <div class="header">DON (donatii) -10%</div>
+                            <div class="description">bani donați pentru acțiuni caritabile (zeciuiala din biblie )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $("#submit-data").on('click', function () {
+        const amount = $("#amount").val();
+
+        if (!isNaN(amount)) {
+            $("#data")
+                .append("<div class='ui segment'>" +
+                    "<h3 class='ui header'>  Amount  <u style='color: darkgreen'>" + amount + "</u> distribution: </h3>" +
+                    "<div class='ui divided selection list'>" +
+                    "<div class='ui divider'></div>" +
+                    "<div class='item'><div class='ui violet horizontal label'> LF (10%):</div><div class='ui large label'>" + (amount * 0.1) + "</div></div>" +
+                    "<div class='item'><div class='ui violet horizontal label'> ETL (10%):</div><div class='ui large label'>" + (amount * 0.1) + "</div></div>" +
+                    "<div class='item'><div class='ui violet horizontal label'> EDU (10%):</div><div class='ui large label'>" + (amount * 0.1) + "</div></div>" +
+                    "<div class='item'><div class='ui violet horizontal label'> NEC (55%):</div><div class='ui large label'>" + (amount * 0.55) + "</div></div>" +
+                    "<div class='item'><div class='ui violet horizontal label'> JOC (5%):</div><div class='ui large label'>" + (amount * 0.05) + "</div></div>" +
+                    "<div class='item'><div class='ui violet horizontal label'> DON (10%):</div><div class='ui large label'>" + (amount * 0.1) + "</div></div>" +
+                    "</div>" +
+                    "</div>")
+        } else {
+            alert("You must enter ony numbers!")
+        }
+    });
+
+    $("#clear").on('click', function () {
+        $("#data").empty();
+        $("#amount").empty();
+    });
+
+</script>
